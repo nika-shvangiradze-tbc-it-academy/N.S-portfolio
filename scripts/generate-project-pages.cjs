@@ -1,0 +1,77 @@
+const fs = require("fs");
+const path = require("path");
+
+const projects = [
+  "smartads",
+  "adsystemhaus",
+  "advisor-ad-service",
+  "bbs",
+  "acm",
+  "ads-marketing-group",
+  "ads-everywhere",
+  "ad-works",
+  "ad-growth",
+  "acc-advertising",
+];
+
+const template = (slug) => `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Project detail — selected digital work, 2026." />
+    <title>Project — Selected Work 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;450;500;550;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="sr-only" href="#project-page">Skip to project</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand-mark" href="../index.html">Archive <span>/ Design</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">About</a>
+        </nav>
+        <span class="header-year">2026</span>
+      </div>
+    </header>
+
+    <main class="page project-page" id="project-page" data-slug="${slug}"></main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="footer-cta">
+          Let's build<br />
+          something distinct.
+        </p>
+        <div class="footer-contact">
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </div>
+        <div class="footer-bottom">
+          <span>Selected Work</span>
+          <span>2026</span>
+          <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/projects-data.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
+`;
+
+const outDir = path.resolve(__dirname, "../projects");
+fs.mkdirSync(outDir, { recursive: true });
+
+for (const slug of projects) {
+  fs.writeFileSync(path.join(outDir, `${slug}.html`), template(slug), "utf8");
+  console.log(`wrote projects/${slug}.html`);
+}

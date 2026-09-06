@@ -1,0 +1,16 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Editorial digital design portfolio — selected advertising website work, 2026",
+  "scripts": {
+    "start": "npx --yes serve . -p 5173",
+    "capture": "node scripts/capture-screenshots.cjs",
+    "optimize": "node scripts/optimize-images.cjs",
+    "pages": "node scripts/generate-project-pages.cjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4"
+  }
+}

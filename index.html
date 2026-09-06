@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Nika Shvangiradze — Frontend Developer. Selected Upwork archive and Georgian client work."
+    />
+    <title>Nika Shvangiradze - Portfolio</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="cosmos" aria-hidden="true">
+      <div class="cosmos__nebula"></div>
+      <div class="cosmos__stars cosmos__stars--far"></div>
+      <div class="cosmos__stars cosmos__stars--mid"></div>
+      <div class="cosmos__stars cosmos__stars--near" id="cosmos-stars"></div>
+    </div>
+
+    <a class="sr-only" href="#hero">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="site-header__inner">
+        <a class="brand-mark" href="#hero" id="brand-mark">N.S <span>/ Portfolio</span></a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <div class="site-nav__panel">
+            <p class="site-nav__kicker">Navigate</p>
+            <div class="site-nav__links">
+              <a href="#hero" data-nav="hero"><span class="site-nav__idx" aria-hidden="true">01</span><span class="site-nav__label">Home</span></a>
+              <a href="#upwork" data-nav="upwork"><span class="site-nav__idx" aria-hidden="true">02</span><span class="site-nav__label">Projects</span></a>
+              <a href="#about" data-nav="about"><span class="site-nav__idx" aria-hidden="true">03</span><span class="site-nav__label">About</span></a>
+              <a href="#contact" data-nav="contact"><span class="site-nav__idx" aria-hidden="true">04</span><span class="site-nav__label">Contact</span></a>
+            </div>
+            <div class="site-nav__foot">
+              <p class="site-nav__status"><span class="site-nav__pulse" aria-hidden="true"></span> Open for selected work</p>
+              <a class="site-nav__mail" href="mailto:shvangiradze1010@gmail.com">shvangiradze1010@gmail.com</a>
+            </div>
+          </div>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="nav-toggle__word" data-open="Menu" data-close="Close">Menu</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- 01 — Personal Hero -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__copy reveal">
+            <p class="hero__eyebrow">Frontend Developer / Digital Archive</p>
+            <h1 id="hero-title" class="hero__title">
+              <span class="hero__name-line">Nika</span>
+              <span class="hero__name-line ">Shvangiradze</span>
+            </h1>
+            <p class="hero__role">Frontend Developer · Angular / TypeScript / Modern Web Experiences</p>
+            <p class="hero__lead">
+              Frontend developer focused on responsive, maintainable and visually
+              refined web experiences.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--magnetic" href="#upwork">Explore Projects</a>
+              <a class="btn btn--ghost btn--magnetic" href="#about">About Me</a>
+            </div>
+            <ul class="hero__meta" aria-label="Focus areas">
+              <li>Angular</li>
+              <li>TypeScript</li>
+              <li>Frontend Development</li>
+            </ul>
+          </div>
+
+          <div class="hero__stage reveal" aria-hidden="true">
+            <div class="portrait-scene" id="portrait-scene">
+          
+              <div class="portrait-scene__glow"></div>
+              <div class="portrait-scene__grid"></div>
+              <div class="portrait-scene__orbit portrait-scene__orbit--a"></div>
+              <div class="portrait-scene__orbit portrait-scene__orbit--b"></div>
+              <div class="portrait-scene__glass portrait-scene__glass--back" data-depth="10"></div>
+              <div class="portrait-scene__glass portrait-scene__glass--side" data-depth="14"></div>
+              <div class="portrait-card">
+                <div class="portrait-card__tilt" id="portrait-card">
+                  <div class="portrait-card__frame">
+                    <img
+                      src="assets/about/portrait.jpg"
+                      alt=""
+                      width="1200"
+                      height="900"
+                      fetchpriority="high"
+                      decoding="async"
+                    />
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="portrait-scene__frag portrait-scene__frag--a" data-depth="28">
+                <span>Angular</span>
+              </div>
+              <div class="portrait-scene__frag portrait-scene__frag--b" data-depth="18">
+                <span>TS</span>
+              </div>
+              <div class="portrait-scene__frag portrait-scene__frag--c" data-depth="24">
+                <span>UI · UX</span>
+              </div>
+              <div class="portrait-scene__coord">41.71°N · 44.78°E</div>
+            </div>
+          </div>
+        </div>
+
+        <a class="hero__scroll" href="#upwork" aria-label="Scroll to Upwork archive">
+          <span>Scroll</span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <!-- 02 — Upwork Archive -->
+      <section class="section archive" id="upwork" aria-labelledby="upwork-heading">
+        <div class="container">
+          <div class="archive__intro reveal">
+            <div class="archive__copy">
+              <p class="section-kicker">Upwork Archive</p>
+              <h2 id="upwork-heading" class="archive__title">
+                Ten sites<br />
+                One clear collection
+              </h2>
+              <p class="archive__lead">
+                A selected collection of advertising and marketing websites completed
+                through Upwork — browse the list, preview the work, open any live site.
+              </p>
+            </div>
+
+            <div class="archive__stage" aria-hidden="true">
+              <div class="scene-3d">
+                <div class="scene-3d__glow"></div>
+                <div class="scene-3d__ring scene-3d__ring--a"></div>
+                <div class="scene-3d__ring scene-3d__ring--b"></div>
+                <div class="scene-3d__core"></div>
+                <div class="scene-3d__deck" id="archive-stack"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-head reveal">
+            <div>
+              <p class="section-kicker">Collection</p>
+              <h3 class="section-title">Selected work</h3>
+            </div>
+            <p class="section-note">
+              <span class="section-note__fine">Hover to preview · </span>Tap or click to open live site
+            </p>
+          </div>
+
+          <div class="work-console reveal">
+            <div class="work-list" id="work-list" role="list"></div>
+            <aside class="work-preview" id="work-preview" aria-live="polite">
+              <div class="work-preview__frame">
+                <img id="preview-image" alt="" width="1440" height="900" />
+              </div>
+              <div class="work-preview__meta">
+                <div>
+                  <p class="work-preview__num" id="preview-num">01</p>
+                  <h3 class="work-preview__name" id="preview-name">—</h3>
+                  <p class="work-preview__tags" id="preview-tags"></p>
+                </div>
+                <a
+                  class="btn btn--primary"
+                  id="preview-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open live site ↗
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — Georgian Client Work -->
+      <section class="section georgian" id="georgian" aria-labelledby="georgian-heading">
+        <div class="container">
+          <div class="georgian__intro reveal">
+            <p class="section-kicker">Direct Client Work / Georgia</p>
+            <h2 id="georgian-heading" class="georgian__title">Built Closer to Home.</h2>
+            <p class="georgian__lead">
+              Selected digital projects created directly for Georgian clients —
+              presented as individual case studies, not archive entries.
+            </p>
+          </div>
+
+          <div class="case-stack" id="case-stack"></div>
+        </div>
+      </section>
+
+      <!-- 04 — About -->
+      <section class="section about" id="about" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="about__layout reveal" id="about-scene">
+            <div class="about__stage" aria-label="Interactive tech stack visualization">
+              <div class="about-stage__caption">
+                <p class="about-stage__kicker">Tech Stack</p>
+                <p class="about-stage__hint">Tools I build with — orbit in motion</p>
+              </div>
+
+              <div class="about-stage__glow" aria-hidden="true"></div>
+
+              <div class="about-orbit" aria-hidden="true">
+                <div class="about-orbit__ring"></div>
+                <div class="about-orbit__track">
+                  <div class="about-orbit__item about-orbit__item--wide" style="--i: 0">
+                    <span class="tech-logo tech-logo--angular">Angular</span>
+                  </div>
+                  <div class="about-orbit__item" style="--i: 1">
+                    <span class="tech-logo tech-logo--html">HTML</span>
+                  </div>
+                  <div class="about-orbit__item" style="--i: 2">
+                    <span class="tech-logo tech-logo--js">JS</span>
+                  </div>
+                  <div class="about-orbit__item" style="--i: 3">
+                    <span class="tech-logo tech-logo--ts">TS</span>
+                  </div>
+                  <div class="about-orbit__item" style="--i: 4">
+                    <span class="tech-logo tech-logo--scss">SCSS</span>
+                  </div>
+                  <div class="about-orbit__item" style="--i: 5">
+                    <span class="tech-logo tech-logo--tw">TW</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-stage__core" data-about-depth="36">
+                <span class="about-stage__mark">N.S</span>
+                <span class="about-stage__label">Frontend</span>
+                <span class="about-stage__years">3+ yrs</span>
+              </div>
+
+              <ul class="about-stage__legend">
+                <li><span class="dot dot--angular"></span>Angular</li>
+                <li><span class="dot dot--html"></span>HTML</li>
+                <li><span class="dot dot--js"></span>JavaScript</li>
+                <li><span class="dot dot--ts"></span>TypeScript</li>
+                <li><span class="dot dot--scss"></span>SCSS</li>
+                <li><span class="dot dot--tw"></span>Tailwind</li>
+              </ul>
+            </div>
+
+            <div class="about__main">
+              <p class="section-kicker">About / Tech Stack</p>
+              <h2 id="about-heading" class="about__title">Frontend Developer</h2>
+              <p class="about__role">3+ years building modern, responsive web applications.</p>
+
+              <div class="about__copy">
+                <p>
+                  The orbit on the left is my daily stack — Angular at the center of how I
+                  ship, with TypeScript, modern CSS, and clean UI systems around it.
+                </p>
+                <p>
+                  I turn complex requirements into polished, maintainable interfaces.
+                </p>
+              </div>
+
+              <div class="about__skills">
+                <h3 class="about__skills-title">Focus</h3>
+                <ul class="skills-list">
+                  <li>Angular</li>
+                  <li>TypeScript</li>
+                  <li>RxJS</li>
+                  <li>Responsive UI</li>
+                  <li>REST APIs</li>
+                  <li>State Management</li>
+                  <li>Performance</li>
+                  <li>Design Systems</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — Contact -->
+      <section class="section contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="contact__layout reveal" id="contact-scene">
+            <div class="contact__copy">
+              <p class="section-kicker">Contact</p>
+              <h2 id="contact-heading" class="contact__title">
+                Available for<br />
+                selected projects.
+              </h2>
+              <p class="contact__lead">
+                Have a project in mind? Let’s build something useful —
+                clean, responsive and carefully crafted.
+              </p>
+              <a
+                class="btn btn--primary btn--magnetic contact__cta"
+                href="mailto:shvangiradze1010@gmail.com"
+                >Email Me</a
+              >
+              <p class="contact__mail">shvangiradze1010@gmail.com</p>
+            </div>
+
+            <div class="contact__stage" aria-label="Contact channels">
+              <div class="contact-field" aria-hidden="true">
+                <div class="contact-field__glow"></div>
+                <div class="contact-field__floor"></div>
+                <div class="contact-field__sweep"></div>
+                <span class="contact-field__pillar" style="--p: 0"></span>
+                <span class="contact-field__pillar" style="--p: 1"></span>
+                <span class="contact-field__pillar" style="--p: 2"></span>
+                <span class="contact-field__pillar" style="--p: 3"></span>
+                <span class="contact-field__pillar" style="--p: 4"></span>
+                <span class="contact-field__node" style="--n: 0"></span>
+                <span class="contact-field__node" style="--n: 1"></span>
+                <span class="contact-field__node" style="--n: 2"></span>
+                <span class="contact-field__frame contact-field__frame--a"></span>
+                <span class="contact-field__frame contact-field__frame--b"></span>
+              </div>
+
+              <div class="contact-stack" id="contact-stack">
+                <a
+                  class="contact-card"
+                  href="tel:+9955510990081"
+                  data-contact-depth="28"
+                >
+                  <span class="contact-card__label">Phone</span>
+                  <span class="contact-card__value">551 099 0081</span>
+                  <span class="contact-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a
+                  class="contact-card"
+                  href="https://www.upwork.com/freelancers/~011f278d782e3076df"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-contact-depth="36"
+                >
+                  <span class="contact-card__label">Upwork</span>
+                  <span class="contact-card__value">View profile</span>
+                  <span class="contact-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a
+                  class="contact-card"
+                  href="https://www.linkedin.com/in/nika-shvangiradze-4b0ab5327/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-contact-depth="44"
+                >
+                  <span class="contact-card__label">LinkedIn</span>
+                  <span class="contact-card__value">nika-shvangiradze</span>
+                  <span class="contact-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a
+                  class="contact-card"
+                  href="https://github.com/nika-shvangiradze-tbc-it-academy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-contact-depth="52"
+                >
+                  <span class="contact-card__label">GitHub</span>
+                  <span class="contact-card__value">Open profile</span>
+                  <span class="contact-card__arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <p class="footer__name">Nika Shvangiradze</p>
+          <p class="footer__role">Frontend Developer</p>
+        </div>
+
+ 
+
+        <div class="footer__social">
+          <a
+            href="https://github.com/nika-shvangiradze-tbc-it-academy"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/nika-shvangiradze-4b0ab5327/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="https://www.upwork.com/freelancers/~011f278d782e3076df"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Upwork</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
