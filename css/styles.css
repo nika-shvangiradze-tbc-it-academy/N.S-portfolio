@@ -506,12 +506,13 @@ p {
 }
 
 .hero__role {
-  font-size: 0.8rem;
+  font-size: clamp(1.02rem, 1.7vw, 1.25rem);
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 1.1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+  color: var(--text);
+  max-width: 32ch;
+  margin-bottom: 0.9rem;
 }
 
 .hero__lead {
@@ -1812,11 +1813,13 @@ p {
 }
 
 .dot--angular { background: #ff6b6b; }
-.dot--html { background: #ff8a5c; }
-.dot--js { background: #f0d35a; }
 .dot--ts { background: #7eb6ff; }
-.dot--scss { background: #e39bc4; }
-.dot--tw { background: #5ed4f5; }
+.dot--ai { background: #a48bff; }
+.dot--api { background: #5ed4f5; }
+.dot--github { background: #e6e8ef; }
+.dot--gitlab { background: #ff8a5c; }
+.dot--clickup { background: #e39bc4; }
+.dot--design { background: #f0d35a; }
 
 .about-stage__glow {
   position: absolute;
@@ -1875,7 +1878,7 @@ p {
 }
 
 .about-orbit__item {
-  --count: 6;
+  --count: 8;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1919,20 +1922,8 @@ p {
 
 .tech-logo--angular {
   color: #ff6b6b;
-  border-color: rgba(255, 107, 107, 0.55);
-  background: linear-gradient(180deg, rgba(255, 107, 107, 0.22), rgba(8, 12, 22, 0.96));
-}
-
-.tech-logo--html {
-  color: #ff8a5c;
-  border-color: rgba(255, 138, 92, 0.45);
-  background: linear-gradient(180deg, rgba(255, 138, 92, 0.18), rgba(8, 12, 22, 0.96));
-}
-
-.tech-logo--js {
-  color: #f0d35a;
-  border-color: rgba(240, 211, 90, 0.45);
-  background: linear-gradient(180deg, rgba(240, 211, 90, 0.16), rgba(8, 12, 22, 0.96));
+  border-color: rgba(255, 107, 107, 0.5);
+  background: linear-gradient(180deg, rgba(255, 107, 107, 0.18), rgba(8, 12, 22, 0.96));
 }
 
 .tech-logo--ts {
@@ -1941,16 +1932,40 @@ p {
   background: linear-gradient(180deg, rgba(126, 182, 255, 0.18), rgba(8, 12, 22, 0.96));
 }
 
-.tech-logo--scss {
+.tech-logo--ai {
+  color: #a48bff;
+  border-color: rgba(164, 139, 255, 0.5);
+  background: linear-gradient(180deg, rgba(164, 139, 255, 0.2), rgba(8, 12, 22, 0.96));
+}
+
+.tech-logo--api {
+  color: #5ed4f5;
+  border-color: rgba(94, 212, 245, 0.5);
+  background: linear-gradient(180deg, rgba(94, 212, 245, 0.16), rgba(8, 12, 22, 0.96));
+}
+
+.tech-logo--github {
+  color: #e6e8ef;
+  border-color: rgba(230, 232, 239, 0.42);
+  background: linear-gradient(180deg, rgba(230, 232, 239, 0.14), rgba(8, 12, 22, 0.96));
+}
+
+.tech-logo--gitlab {
+  color: #ff8a5c;
+  border-color: rgba(255, 138, 92, 0.45);
+  background: linear-gradient(180deg, rgba(255, 138, 92, 0.18), rgba(8, 12, 22, 0.96));
+}
+
+.tech-logo--clickup {
   color: #e39bc4;
   border-color: rgba(227, 155, 196, 0.45);
   background: linear-gradient(180deg, rgba(227, 155, 196, 0.16), rgba(8, 12, 22, 0.96));
 }
 
-.tech-logo--tw {
-  color: #5ed4f5;
-  border-color: rgba(94, 212, 245, 0.5);
-  background: linear-gradient(180deg, rgba(94, 212, 245, 0.16), rgba(8, 12, 22, 0.96));
+.tech-logo--design {
+  color: #f0d35a;
+  border-color: rgba(240, 211, 90, 0.45);
+  background: linear-gradient(180deg, rgba(240, 211, 90, 0.16), rgba(8, 12, 22, 0.96));
 }
 
 .about-stage__core {
@@ -2016,14 +2031,14 @@ p {
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 500;
   letter-spacing: -0.035em;
-  max-width: 12ch;
+  max-width: 15ch;
 }
 
 .about__role {
   color: var(--accent);
   font-size: 0.92rem;
   font-weight: 500;
-  max-width: 30ch;
+  max-width: 36ch;
 }
 
 .about__copy {
@@ -2073,6 +2088,30 @@ p {
 
 .about__layout:hover .skills-list li:nth-child(odd) {
   transform: translateY(-2px);
+}
+
+.workflow-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+.workflow-list li {
+  padding: 0.24rem 0.55rem;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  transition:
+    color 280ms var(--ease),
+    border-color 280ms var(--ease);
+}
+
+.about__layout:hover .workflow-list li {
+  color: var(--text-muted);
 }
 
 @keyframes aboutGlow {
@@ -3018,9 +3057,8 @@ p {
   }
 
   .hero__role {
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.85rem;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .hero__lead {
@@ -3160,9 +3198,9 @@ p {
 
   .about-stage__legend {
     display: grid;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
     justify-content: center;
-    gap: 0.55rem 1rem;
+    gap: 0.5rem 0.8rem;
     bottom: 0.9rem;
     left: 0.75rem;
     right: 0.75rem;
@@ -3273,7 +3311,7 @@ p {
   }
 
   .about-stage__legend {
-    gap: 0.5rem 0.75rem;
+    gap: 0.45rem 0.6rem;
   }
 
   .contact-stack {

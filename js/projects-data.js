@@ -14,8 +14,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "full",
     overview:
       "A focused digital experience created for a modern advertising and paid-media company, with a clear visual system and distinctive brand presentation.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "02",
@@ -28,8 +28,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "right-65",
     overview:
       "A refined web presence for a German advertising systems house, structured around clarity, hierarchy, and a restrained contemporary aesthetic.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "03",
@@ -42,8 +42,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "pair-left",
     overview:
       "An editorial digital experience for a performance-oriented advertising advisory practice, emphasizing system clarity and brand confidence.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "04",
@@ -56,8 +56,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "pair-right",
     overview:
       "A distinctive digital presentation for a German creative advertising agency, built around strong visual hierarchy and a precise brand voice.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "05",
@@ -70,8 +70,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "full",
     overview:
       "A structured website for a German advertising agency, designed to present services and identity with clarity and compositional restraint.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "06",
@@ -84,8 +84,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "left-60",
     overview:
       "A digital marketing-focused website experience with a clear information architecture and a brand-forward visual system.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "07",
@@ -98,8 +98,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "large",
     overview:
       "A contemporary digital presence for a paid-media advertising company, designed for strong first impressions and readable structure.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "08",
@@ -112,8 +112,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "pair-left",
     overview:
       "A full-service advertising agency website built around photographic presence, confident typography, and a clear service narrative.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "09",
@@ -126,8 +126,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "pair-right",
     overview:
       "A growth-oriented advertising brand site with a sharp visual system and a concise, conversion-aware landing experience.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
   {
     id: "10",
@@ -140,8 +140,8 @@ window.PORTFOLIO_PROJECTS = [
     layout: "oversized",
     overview:
       "A closing statement piece in the collection — a polished advertising brand website with measured pacing and a distinctive visual identity.",
-    role: ["Web Design", "Frontend Development", "Creative Direction"],
-    deliverables: ["Responsive Website", "UI System", "Landing Experience"],
+    role: ["Web Design", "Frontend Implementation", "Responsive Development"],
+    deliverables: ["Responsive Website", "UI System", "Performance Pass"],
   },
 ];
 
@@ -149,27 +149,27 @@ window.GEORGIAN_PROJECTS = [
   {
     id: "01",
     slug: "an-art-gallery",
-    name: "AN Art Gallery",
-    tags: ["Art", "Gallery", "Georgia"],
+    name: "Anart Gallery",
+    tags: ["Gallery", "Web Design", "Responsive"],
     category: "Art / Gallery",
     country: "Georgia",
     url: "https://anartgallery.ge/",
     layout: "media-left",
     summary:
-      "A refined digital presence for a Georgian art gallery — calm hierarchy, strong imagery, and a quiet luxury aesthetic.",
-    meta: ["Art", "Website", "Georgia"],
+      "A refined digital presence for a Georgian art gallery — calm hierarchy, image-heavy layouts tuned for load speed, and a quiet luxury aesthetic.",
+    meta: ["Frontend", "UI Refinement", "Performance"],
   },
   {
     id: "02",
     slug: "location-georgia",
     name: "Location Georgia",
-    tags: ["DELIVERY", "Location Discovery", "Georgia"],
+    tags: ["Delivery", "Location Discovery", "API Integration"],
     category: "Delivery / Discovery",
     country: "Georgia",
     url: "https://location-georgia.netlify.app/",
     layout: "media-right",
     summary:
-      "A location-discovery experience crafted for Georgian delivery — editorial pacing, clear destinations, and a cinematic visual tone.",
-    meta: ["Delivery", "Website", "Georgia"],
+      "A location-discovery experience crafted for Georgian delivery — API-driven destination data, editorial pacing, and a cinematic visual tone.",
+    meta: ["Frontend", "REST APIs", "Responsive UI"],
   },
 ];
