@@ -109,7 +109,7 @@
 
     if (e.key !== "Tab" || !nav) return;
 
-    const focusables = [navToggle, ...navLinks, ...Array.from(nav.querySelectorAll(".site-nav__mail"))].filter(
+    const focusables = [brandMark, ...navLinks, navToggle].filter(
       (el) => el && !el.hasAttribute("disabled")
     );
     if (!focusables.length) return;
