@@ -2155,33 +2155,20 @@ p {
 
 .credential-seal__mark {
   position: relative;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 3rem;
+  height: 3rem;
   display: grid;
   place-items: center;
   flex-shrink: 0;
 }
 
-.credential-seal__ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px dashed rgba(46, 230, 196, 0.45);
-  animation: credentialSpin 18s linear infinite;
-}
-
-.credential-seal__core {
-  width: 2rem;
-  height: 2rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 1px solid rgba(46, 230, 196, 0.4);
-  background: rgba(8, 12, 22, 0.9);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #2ee6c4;
+.credential-seal__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(46, 230, 196, 0.28);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .credential-seal__body {
@@ -2378,12 +2365,6 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-faint);
-}
-
-@keyframes credentialSpin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes aboutGlow {
@@ -3751,7 +3732,8 @@ p {
     --contact-ry: 0deg;
   }
 
-  .credential-seal__ring {
-    animation: none;
+  .credential-seal__mark {
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
