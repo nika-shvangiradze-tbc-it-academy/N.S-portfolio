@@ -10,6 +10,47 @@
     return `assets/projects/${slug}/${file}`;
   }
 
+  /* Smooth scroll without writing #hash into the URL */
+  function scrollToId(id) {
+    const target = document.getElementById(id);
+    if (!target) return false;
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
+    return true;
+  }
+
+  function clearHashFromUrl() {
+    if (!window.location.hash) return;
+    const clean = window.location.pathname + window.location.search;
+    window.history.replaceState(null, "", clean);
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
+
+    const id = href.slice(1);
+    if (!id || !document.getElementById(id)) return;
+
+    e.preventDefault();
+    scrollToId(id);
+    clearHashFromUrl();
+    if (isNavOpen()) setNavOpen(false);
+  });
+
+  if (window.location.hash) {
+    const initialId = window.location.hash.slice(1);
+    window.requestAnimationFrame(() => {
+      scrollToId(initialId);
+      clearHashFromUrl();
+    });
+  }
+
   /* Header + mobile nav */
   const header = document.getElementById("site-header");
   const nav = document.getElementById("site-nav");
@@ -82,10 +123,6 @@
   if (brandMark) {
     brandMark.addEventListener("click", () => setNavOpen(false));
   }
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => setNavOpen(false));
-  });
 
   /* Close overlay nav when returning to desktop width */
   const navMq = window.matchMedia("(min-width: 901px)");
@@ -664,6 +701,49 @@
     });
   }
 
+  /* Certificate vault */
+  function initCredentialVault() {
+    const dialog = document.getElementById("credential-vault");
+    const openBtn = document.getElementById("credential-open");
+    const closeBtn = document.getElementById("credential-close");
+    if (!dialog || !openBtn) return;
+
+    const open = () => {
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+      document.body.classList.add("is-vault-open");
+    };
+
+    const close = () => {
+      if (typeof dialog.close === "function") {
+        dialog.close();
+      } else {
+        dialog.removeAttribute("open");
+      }
+      document.body.classList.remove("is-vault-open");
+      openBtn.focus();
+    };
+
+    openBtn.addEventListener("click", open);
+    if (closeBtn) closeBtn.addEventListener("click", close);
+
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) close();
+    });
+
+    dialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      close();
+    });
+
+    dialog.addEventListener("close", () => {
+      document.body.classList.remove("is-vault-open");
+    });
+  }
+
   renderStars();
   renderArchiveStack();
   renderWorkConsole();
@@ -673,4 +753,5 @@
   initContactScene();
   initMagneticButtons();
   initReveals();
+  initCredentialVault();
 })();

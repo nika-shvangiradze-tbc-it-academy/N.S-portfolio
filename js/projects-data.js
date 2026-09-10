@@ -163,13 +163,13 @@ window.GEORGIAN_PROJECTS = [
     id: "02",
     slug: "location-georgia",
     name: "Location Georgia",
-    tags: ["Delivery", "Location Discovery", "API Integration"],
+    tags: ["Delivery", "Location Discovery", "Georgia"],
     category: "Delivery / Discovery",
     country: "Georgia",
     url: "https://location-georgia.netlify.app/",
     layout: "media-right",
     summary:
-      "A location-discovery experience crafted for Georgian delivery — API-driven destination data, editorial pacing, and a cinematic visual tone.",
-    meta: ["Frontend", "REST APIs", "Responsive UI"],
+      "A location-discovery experience crafted for Georgian delivery — editorial pacing, clear destinations, and a cinematic visual tone.",
+    meta: ["Frontend", "Web Design", "Responsive UI"],
   },
 ];
