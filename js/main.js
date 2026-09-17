@@ -324,7 +324,7 @@
     const stack = document.getElementById("archive-stack");
     if (!stack || !projects.length) return;
 
-    const picks = [projects[0], projects[2], projects[6]].filter(Boolean);
+    const picks = projects.slice(0, 3);
     stack.innerHTML = picks
       .map(
         (p) => `
@@ -342,127 +342,26 @@
       .join("");
   }
 
-  /* Work console */
-  let activeIndex = 0;
-
-  function setPreview(index, { open = false } = {}) {
-    const project = projects[index];
-    if (!project) return;
-    activeIndex = index;
-
-    const frame = document.querySelector(".work-preview__frame");
-    const img = document.getElementById("preview-image");
-    const num = document.getElementById("preview-num");
-    const name = document.getElementById("preview-name");
-    const tags = document.getElementById("preview-tags");
-    const link = document.getElementById("preview-link");
-
-    document.querySelectorAll(".work-item").forEach((el, i) => {
-      el.classList.toggle("is-active", i === index);
-    });
-
-    if (frame) frame.classList.add("is-switching");
-
-    window.setTimeout(() => {
-      if (img) {
-        img.src = imagePath(project.slug, "hero.jpg");
-        img.alt = `Preview of ${project.name}`;
-      }
-      if (num) num.textContent = project.id;
-      if (name) name.textContent = project.name;
-      if (tags) {
-        tags.textContent = `${project.category} · ${project.country} · ${project.year}`;
-      }
-      if (link) {
-        if (project.url) {
-          link.href = project.url;
-          link.classList.remove("is-disabled");
-          link.setAttribute("aria-disabled", "false");
-          link.textContent = "Open live site ↗";
-        } else {
-          link.href = "#";
-          link.classList.add("is-disabled");
-          link.setAttribute("aria-disabled", "true");
-          link.textContent = "URL soon";
-        }
-      }
-      if (frame) frame.classList.remove("is-switching");
-    }, 120);
-
-    if (open && project.url) {
-      window.open(project.url, "_blank", "noopener,noreferrer");
+  /* Selected work — featured duo (matches case-card language) */
+  function projectHost(url) {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return url || "";
     }
   }
 
-  function renderWorkConsole() {
-    const list = document.getElementById("work-list");
-    if (!list || !projects.length) return;
+  function buildFeatureCard(p, { flip = false, prefix = "Project", linkLabel = "Open live site" } = {}) {
+    const tags = p.tags || [];
+    const meta = p.meta || [];
+    const chipA = tags[0] || p.category || "Client";
+    const chipB = p.country || "";
+    const host = projectHost(p.url);
 
-    list.innerHTML = projects
-      .map((p, index) => {
-        const disabled = !p.url;
-        return `
-      <button
-        type="button"
-        class="work-item${disabled ? " is-disabled" : ""}"
-        role="listitem"
-        data-index="${index}"
-        ${disabled ? "disabled" : ""}
-        aria-label="${disabled ? p.name + " — URL coming soon" : "Preview " + p.name}"
-      >
-        <span class="work-item__num">${p.id}</span>
-        <span>
-          <span class="work-item__name">${p.name}</span>
-          <span class="work-item__meta">${p.country} · ${p.year}</span>
-        </span>
-        <span class="work-item__open">${disabled ? "Soon" : "Open ↗"}</span>
-      </button>`;
-      })
-      .join("");
-
-    list.querySelectorAll(".work-item").forEach((item) => {
-      const index = Number(item.dataset.index);
-
-      if (canHover) {
-        item.addEventListener("pointerenter", () => setPreview(index));
-      }
-
-      item.addEventListener("focus", () => setPreview(index));
-
-      item.addEventListener("click", () => {
-        const project = projects[index];
-        setPreview(index);
-        if (project && project.url) {
-          window.open(project.url, "_blank", "noopener,noreferrer");
-        }
-      });
-    });
-
-    setPreview(0);
-  }
-
-  /* Georgian case studies */
-  function renderGeorgianCases() {
-    const stack = document.getElementById("case-stack");
-    if (!stack || !georgian.length) return;
-
-    stack.innerHTML = georgian
-      .map((p, index) => {
-        const flip = p.layout === "media-right";
-        const host = (() => {
-          try {
-            return new URL(p.url).hostname.replace(/^www\./, "");
-          } catch {
-            return p.url;
-          }
-        })();
-        const chipA = p.tags[0] || "Client";
-        const chipB = p.country || "Georgia";
-
-        return `
+    return `
       <article
-        class="case-card${flip ? " case-card--flip" : ""} reveal"
-        data-case-index="${index}"
+        class="case-card work-feature${flip ? " case-card--flip" : ""} reveal"
+        data-case-index="${p.id}"
       >
         <div class="case-card__media">
           <div class="case-stage">
@@ -494,14 +393,14 @@
           </div>
         </div>
         <div class="case-card__body">
-          <p class="case-card__num">Project ${p.id}</p>
+          <p class="case-card__num">${prefix} ${p.id}</p>
           <h3 class="case-card__name">${p.name}</h3>
           <p class="case-card__tags">
-            ${p.tags.map((t) => `<span>${t}</span>`).join("")}
+            ${tags.map((t) => `<span>${t}</span>`).join("")}
           </p>
-          <p class="case-card__summary">${p.summary}</p>
+          <p class="case-card__summary">${p.summary || p.overview || ""}</p>
           <p class="case-card__meta">
-            ${p.meta.map((m) => `<span>${m}</span>`).join("")}
+            ${meta.map((m) => `<span>${m}</span>`).join("")}
           </p>
           <a
             class="case-card__link"
@@ -509,14 +408,15 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit Website <span aria-hidden="true">↗</span>
+            ${linkLabel} <span aria-hidden="true">↗</span>
           </a>
         </div>
       </article>`;
-      })
-      .join("");
+  }
 
-    stack.querySelectorAll(".case-card").forEach((card) => {
+  function initCaseCardMotion(root) {
+    if (!root) return;
+    root.querySelectorAll(".case-card").forEach((card) => {
       if (!canHover || reduceMotion) {
         card.classList.add("is-open");
         return;
@@ -584,6 +484,40 @@
         start();
       });
     });
+  }
+
+  function renderSelectedWork() {
+    const duo = document.getElementById("work-duo");
+    if (!duo || !projects.length) return;
+
+    duo.innerHTML = projects
+      .map((p) =>
+        buildFeatureCard(p, {
+          flip: false,
+          prefix: "Project",
+        })
+      )
+      .join("");
+
+    initCaseCardMotion(duo);
+  }
+
+  /* Georgian case studies */
+  function renderGeorgianCases() {
+    const stack = document.getElementById("case-stack");
+    if (!stack || !georgian.length) return;
+
+    stack.innerHTML = georgian
+      .map((p) =>
+        buildFeatureCard(p, {
+          flip: p.layout === "media-right",
+          prefix: "Project",
+          linkLabel: "Visit Website",
+        })
+      )
+      .join("");
+
+    initCaseCardMotion(stack);
   }
 
   /* About 3D scene — tech stack showcase */
@@ -746,7 +680,7 @@
 
   renderStars();
   renderArchiveStack();
-  renderWorkConsole();
+  renderSelectedWork();
   renderGeorgianCases();
   initPortraitScene();
   initAboutScene();
