@@ -59,3 +59,22 @@ window.GEORGIAN_PROJECTS = [
     meta: ["Frontend", "Web Design", "Responsive UI"],
   },
 ];
+
+/**
+ * Interactive games - separate from agency / client work.
+ * Shape: { title, category, description, technologies, previewImage, liveUrl, featured?, slug?, id? }
+ */
+window.GAME_PROJECTS = [
+  {
+    id: "01",
+    slug: "cubeverse",
+    title: "CubeVerse",
+    category: "Interactive 3D Game",
+    description:
+      "An interactive 3D Rubik's Cube experience built for the web, featuring realistic cube mechanics, challenges, learning modes, customization, and responsive gameplay.",
+    technologies: ["Angular", "TypeScript", "Three.js", "WebGL"],
+    previewImage: "assets/games/cubeverse/preview.jpg",
+    liveUrl: "https://ns-cube.netlify.app/",
+    featured: true,
+  },
+];

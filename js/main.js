@@ -3,6 +3,7 @@
 
   const projects = window.PORTFOLIO_PROJECTS || [];
   const georgian = window.GEORGIAN_PROJECTS || [];
+  const games = window.GAME_PROJECTS || [];
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -165,7 +166,7 @@
   });
 
   /* Active section indication */
-  const sectionIds = ["hero", "upwork", "georgian", "about", "contact"];
+  const sectionIds = ["hero", "upwork", "games", "about", "contact"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -520,6 +521,117 @@
     initCaseCardMotion(stack);
   }
 
+  /* Games - featured + optional grid */
+  const externalLinkIcon = `
+    <svg class="game-card__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+      <path d="M5.5 2.5H2.75A1.25 1.25 0 0 0 1.5 3.75v7.5A1.25 1.25 0 0 0 2.75 12.5h7.5A1.25 1.25 0 0 0 11.5 11.25V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M8 1.5h4.5V6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.5 7.5 12.25 1.75" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+    </svg>`;
+
+  function buildFeaturedGameCard(game) {
+    const techs = game.technologies || [];
+    const preview = game.previewImage || "";
+    const url = game.liveUrl || "#";
+    const title = game.title || "Game";
+
+    return `
+      <article class="game-card game-card--featured reveal">
+        <div class="game-card__visual">
+          <div class="game-card__glow" aria-hidden="true"></div>
+          <div class="game-card__frame">
+            <img
+              src="${preview}"
+              alt="${title} preview · ${game.category || "interactive game"}"
+              width="1440"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="game-card__body">
+          <p class="game-card__label">Featured Game</p>
+          <h3 class="game-card__title">${title}</h3>
+          <p class="game-card__category">${game.category || ""}</p>
+          <p class="game-card__desc">${game.description || ""}</p>
+          <ul class="game-card__tech" aria-label="Technologies">
+            ${techs.map((t) => `<li>${t}</li>`).join("")}
+          </ul>
+          <a
+            class="game-card__cta"
+            href="${url}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Play Live
+            ${externalLinkIcon}
+          </a>
+        </div>
+      </article>`;
+  }
+
+  function buildGameGridCard(game) {
+    const techs = game.technologies || [];
+    const preview = game.previewImage || "";
+    const url = game.liveUrl || "#";
+    const title = game.title || "Game";
+
+    return `
+      <article class="game-card game-card--grid reveal">
+        <div class="game-card__visual">
+          <div class="game-card__frame">
+            <img
+              src="${preview}"
+              alt="Preview of ${title}"
+              width="1440"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="game-card__body">
+          <h3 class="game-card__title">${title}</h3>
+          <p class="game-card__category">${game.category || ""}</p>
+          <ul class="game-card__tech" aria-label="Technologies">
+            ${techs.map((t) => `<li>${t}</li>`).join("")}
+          </ul>
+          <a
+            class="game-card__cta"
+            href="${url}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Play Live
+            ${externalLinkIcon}
+          </a>
+        </div>
+      </article>`;
+  }
+
+  function renderGames() {
+    const stage = document.getElementById("games-stage");
+    if (!stage || !games.length) return;
+
+    const featured = games.filter((g) => g.featured);
+    const rest = games.filter((g) => !g.featured);
+    const primary = featured[0] || games[0];
+    const secondary = featured.length
+      ? [...featured.slice(1), ...rest]
+      : games.slice(1);
+
+    let html = buildFeaturedGameCard(primary);
+
+    if (secondary.length) {
+      html += `<div class="games__grid">${secondary
+        .map((g) => buildGameGridCard(g))
+        .join("")}</div>`;
+    }
+
+    stage.innerHTML = html;
+  }
+
   /* About 3D scene — tech stack showcase */
   function initAboutScene() {
     const scene = document.getElementById("about-scene");
@@ -682,6 +794,7 @@
   renderArchiveStack();
   renderSelectedWork();
   renderGeorgianCases();
+  renderGames();
   initPortraitScene();
   initAboutScene();
   initContactScene();
