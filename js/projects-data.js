@@ -83,7 +83,7 @@ window.GAME_PROJECTS = [
     title: "Gartoba",
     category: "Multiplayer Table Games",
     description:
-      "A shared space where friends gather to play classic Georgian games together — private tables, invite-only rooms, and live multiplayer.",
+      "A shared space where friends gather to play classic  games together — private tables, invite-only rooms, and live multiplayer.",
 
     technologies: ["Angular", "TypeScript", "SignalR"],
     previewImage: "assets/games/gartoba/preview.jpg",
