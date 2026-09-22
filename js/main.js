@@ -616,15 +616,13 @@
 
     const featured = games.filter((g) => g.featured);
     const rest = games.filter((g) => !g.featured);
-    const primary = featured[0] || games[0];
-    const secondary = featured.length
-      ? [...featured.slice(1), ...rest]
-      : games.slice(1);
+    const featuredList = featured.length ? featured : [games[0]];
+    const gridGames = featured.length ? rest : games.slice(1);
 
-    let html = buildFeaturedGameCard(primary);
+    let html = featuredList.map((g) => buildFeaturedGameCard(g)).join("");
 
-    if (secondary.length) {
-      html += `<div class="games__grid">${secondary
+    if (gridGames.length) {
+      html += `<div class="games__grid">${gridGames
         .map((g) => buildGameGridCard(g))
         .join("")}</div>`;
     }

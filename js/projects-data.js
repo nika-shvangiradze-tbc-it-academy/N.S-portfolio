@@ -55,7 +55,7 @@ window.GEORGIAN_PROJECTS = [
     url: "https://location-georgia.netlify.app/",
     layout: "media-right",
     summary:
-      "A location-discovery experience crafted for Georgian delivery — editorial pacing, clear destinations, and a cinematic visual tone.",
+      "A full-stack Georgian delivery platform with dedicated User, Admin, and Courier sides — organized filtering, live information exchange, and a clear destination-first experience.",
     meta: ["Frontend", "Web Design", "Responsive UI"],
   },
 ];
@@ -75,6 +75,19 @@ window.GAME_PROJECTS = [
     technologies: ["Angular", "TypeScript", "Three.js", "WebGL"],
     previewImage: "assets/games/cubeverse/preview.jpg",
     liveUrl: "https://ns-cube.netlify.app/",
+    featured: true,
+  },
+  {
+    id: "02",
+    slug: "gartoba",
+    title: "Gartoba",
+    category: "Multiplayer Table Games",
+    description:
+      "A shared space where friends gather to play classic Georgian games together — private tables, invite-only rooms, and live multiplayer.",
+
+    technologies: ["Angular", "TypeScript", "SignalR"],
+    previewImage: "assets/games/gartoba/preview.jpg",
+    liveUrl: "https://gartoba.netlify.app/",
     featured: true,
   },
 ];
